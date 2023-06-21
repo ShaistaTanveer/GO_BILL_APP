@@ -1,0 +1,52 @@
+<h1>GET PRODUCTS USING FILTER</h1>
+<mat-card>
+  <form (submit)="onfilter(onfilterf)" #onfilterf="ngForm">
+    <mat-form-field appearance="fill">
+      <mat-select [(value)]="selectedcategory">
+        <mat-option value="chocolate">CHOCOLATE</mat-option>
+        <mat-option value="soap">soap</mat-option>
+        <mat-option value="spices">spices</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-select [(value)]="selectedstockstatus">
+        <mat-option value="instock">instock</mat-option>
+        <mat-option value="outofstock">outofstock</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-select [(value)]="selectedprice">
+        <mat-option value="10">greater>10</mat-option>
+      </mat-select>
+    </mat-form-field>
+    &nbsp;
+    <button class="reg" mat-raised-button type="submit">
+      SEARCH
+    </button>
+  </form>
+</mat-card> <br>
+<div class="table">
+  <table class="table">
+    <thead id="head">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">productName</th>
+        <th scope="col">category</th>
+        <th scope="col">stockstatus</th>
+        <th scope="col">price</th>
+    </thead>
+    <tbody *ngFor=" let product of productList">
+      <tr>
+        <th scope="row">{{product.pid}}</th>
+        <td>{{product.productName}}</td>
+        <td>{{product.category}}</td>
+        <td>{{product.stockstatus}}</td>
+        <td>{{product.price}}</td>
+        <td>
+        </td>
+      </tr>
+    </tbody>
+    <!-- <button type="submit" onclick="onclick()">GET PRODUCTS</button> -->
+  </table>
+</div>
+<p class=" info-text mat-body-1" *ngIf="productList?.length<=0"> No products added yet!</p>

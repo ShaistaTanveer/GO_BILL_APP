@@ -1,0 +1,52 @@
+.formsize {
+  margin: 0 auto;
+  width: 80%;
+  margin-top: 20px;
+}
+
+.formsize mat-card {
+  width: 100%;
+  margin: auto;
+  border-style: none;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.formsize mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.formsize mat-label {
+  color: #333;
+}
+
+.formsize mat-error {
+  color: #dc3545;
+}
+
+.formsize input[type="file"] {
+  display: none;
+}
+
+.formsize input[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.formsize input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 600px) {
+  .formsize {
+    width: 90%;
+  }
+}

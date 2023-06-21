@@ -1,0 +1,38 @@
+<h1>ADD PRODUCT</h1>
+<br>
+<div class="formsize">
+  <mat-card>
+    <form (submit)="onaddProduct(addProduct)" #addProduct="ngForm">
+      <mat-form-field appearance="outline">
+        <mat-label>productName</mat-label>
+        <input matInput name="productName" [ngModel]="updatedProduct?.productName" type="text" placeholder="productName"
+          #productInput="ngModel" required>
+        <mat-error *ngIf="productInput.invalid">Please enter a valid name.</mat-error>
+      </mat-form-field> <br>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Category</mat-label>
+        <input matInput name="category" [ngModel]="updatedProduct?.category" type="text" placeholder="category"
+          #categoryInput="ngModel" required>
+        <mat-error *ngIf="categoryInput.invalid">Please enter a valid category.</mat-error>
+      </mat-form-field> <br>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Price</mat-label>
+        <input matInput name="price" [ngModel]="updatedProduct?.price" type="text" placeholder="price"
+          #priceInput="ngModel" required>
+        <mat-error *ngIf="priceInput.invalid">Please enter a valid price.</mat-error>
+      </mat-form-field> <br>
+
+      <mat-form-field appearance="outline">
+        <mat-label>stockstatus</mat-label>
+        <input type="text" name="stockstatus" [ngModel]="updatedProduct?.stockstatus" matInput placeholder="stockstatus"
+          #stockstatusInput="ngModel" required>
+        <mat-error *ngIf="stockstatusInput.invalid">Please enter a valid stockstatus.</mat-error>
+      </mat-form-field>
+      <br>
+
+      <button mat-raised-button color="primary" type="submit">ADD PRODUCT</button>
+    </form>
+  </mat-card>
+</div>

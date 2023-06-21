@@ -1,0 +1,42 @@
+mat-card {
+  width: 80%;
+  margin: auto;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+mat-form-field {
+  /* margin-bottom: 15px; */
+  margin: 0.25em 2.25em;
+}
+
+mat-label {
+  font-weight: normal;
+}
+
+mat-error {
+  color: red;
+}
+
+button {
+  background-color: #1aaae3;
+  color: #fff;
+  width: 15%;
+  margin-top: 15px;
+}
+
+.form-row {
+  display: flex;
+}
+
+.form-row mat-form-field:not(:last-child) {
+  margin-right: 10px;
+}

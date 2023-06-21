@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>Eye Care Billing App</h1>
+  <div class="card-container">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Welcome!</h5>
+        <p class="card-text">If you already have an account, click the "Login" button below. Otherwise, click the "Sign
+          Up" button to create a new account.</p>
+        <ul class="menu">
+          <li>
+            <a mat-button routerLink="SignUp" routerLinkActive="mat-accent">Sign Up</a>
+          </li>
+          <li>
+            <a mat-button routerLink="Login" routerLinkActive="mat-accent">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="router-outlet-container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

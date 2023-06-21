@@ -1,0 +1,37 @@
+<div class="formsize">
+  <h3 class="section-heading">{{ mode === 'create' ? 'Add Customer' : 'Edit Customer' }}</h3>
+  <mat-card>
+    <form (submit)="onSavePost(RegisterForm)" #RegisterForm="ngForm">
+      <mat-form-field appearance="outline">
+        <mat-label>Customer Name</mat-label>
+        <input matInput name="customerName" [ngModel]="updatedCustomer?.customerName" type="text" placeholder="Name"
+          #nameInput="ngModel" required>
+        <mat-error *ngIf="nameInput.invalid">Please enter a valid name.</mat-error>
+      </mat-form-field> <br>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput name="email" [ngModel]="updatedCustomer?.email" type="text" placeholder="E-mail"
+          #emailInput="ngModel" required>
+        <mat-error *ngIf="emailInput.invalid">Please enter a valid email.</mat-error>
+      </mat-form-field> <br>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Gender</mat-label>
+        <input type="text" name="gender" [ngModel]="updatedCustomer?.gender" matInput placeholder="Gender"
+          #genderInput="ngModel" required>
+        <mat-error *ngIf="genderInput.invalid">Please enter a valid gender.</mat-error>
+      </mat-form-field>
+      <br>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Contact</mat-label>
+        <input matInput name="contact" [ngModel]="updatedCustomer?.contact" type="text" placeholder="Contact"
+          #contactInput="ngModel" required>
+        <mat-error *ngIf="contactInput.invalid">Please enter a valid contact.</mat-error>
+      </mat-form-field> <br>
+
+      <button mat-raised-button type="submit">Signup</button>
+    </form>
+  </mat-card>
+</div>

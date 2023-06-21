@@ -1,0 +1,65 @@
+<div class="tablesearch">
+  <mat-label style="margin-left: 10%;">TABLE SEARCH</mat-label>
+  <input type="text" [(ngModel)]="customerName" placeholder=" SEARCH IN TABLE" #myInput (input)="searchTextBar()"
+    style="margin-left: 6%; width: 50%">
+</div>
+<br>
+<form (submit)="onSearch(search)" #search="ngForm">
+  <mat-label style="margin-left: 10%;">DATABASE SEARCH</mat-label>
+  <input matInput type="text" name="customerName" ngModel placeholder="SEARCH WITH NAME IN DATA BASE"
+    #dobInput="ngModel" style="margin-left: 4%; width: 50%" /> &nbsp;
+  <button class="btn btn-primary" color="primary" type="submit">Search</button>
+</form>
+
+
+
+<div class="table">
+  <h1>ORDER LIST</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">productName</th>
+        <th scope="col">customerId</th>
+        <th scope="col">address</th>
+        <th scope="col">orderDate</th>
+        <th scope="col">deliveryDate</th>
+        <th scope="col">deliveryStatus</th>
+        <th scope="col">customerName</th>
+      </tr>
+    </thead>
+
+    <tbody *ngFor=" let order of orders">
+      <tr>
+        <th scope="row">{{order.orderId}}</th>
+        <td>{{order.productName}}</td>
+        <td>{{order.customerId}}</td>
+        <td>{{order.address}}</td>
+        <td>{{order.orderDate}}</td>
+        <td>{{order.deliveryDate}}</td>
+        <td>{{order.deliveryStatus}}</td>
+        <td>{{order.customerName}}</td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>
+<p class="info-text mat-body-1" *ngIf="orders?.length<=0"> No shippers added yet!</p>
+
+
+<div class="row">
+  <div class="col-md-12 d-flex justify-content-center">
+    <div class="form-inline float-left mr-1">
+      <select class="form-control" [value]="productsPerPage" (change)="changePageSize($event)">
+        <option value="2">2 PER PAGE</option>
+        <option value="4">4 PER PAGE</option>
+        <option value="8">8 PER PAGE</option>
+      </select>
+    </div>
+    <div class="btn-group float-right">
+      <button class="btn btn-outline-primary" *ngFor="let page of pageNumber"
+        (click)="changePage(page)">{{page}}</button>
+
+    </div>
+  </div>
+</div>

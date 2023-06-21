@@ -1,0 +1,59 @@
+<h1>ADD SHIPPER</h1>
+<br>
+<div class="formsize">
+  <mat-card>
+    <form (submit)="onShipperRegister(RegisterForm)" #RegisterForm="ngForm">
+      <mat-form-field appearance="outline">
+        <mat-label>firstName</mat-label>
+        <input matInput name="firstName" [ngModel]="updatedShipper?.firstName" type="text" placeholder="Name"
+          #nameInput="ngModel" required>
+        <mat-error *ngIf="nameInput.invalid">Please enter a valid name.</mat-error>
+      </mat-form-field> <br>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput name="email" [ngModel]="updatedShipper?.email" type="text" placeholder="E-mail"
+          #emailInput="ngModel" required>
+        <mat-error *ngIf="emailInput.invalid">Please enter a valid email.</mat-error>
+      </mat-form-field> <br>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Mobile</mat-label>
+        <input matInput name="mobile" [ngModel]="updatedShipper?.mobile" type="text" placeholder="Mobile"
+          #mobileInput="ngModel" required>
+        <mat-error *ngIf="mobileInput.invalid">Please enter a valid mobile.</mat-error>
+      </mat-form-field> <br>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input type="text" name="password" [ngModel]="updatedShipper?.password" matInput placeholder="Password"
+          #passwordInput="ngModel" required>
+        <mat-error *ngIf="passwordInput.invalid">Please enter a valid password.</mat-error>
+      </mat-form-field>
+      <br>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Gender</mat-label>
+        <input matInput name="gender" [ngModel]="updatedShipper?.gender" type="text" placeholder="Gender"
+          #genderInput="ngModel" required>
+        <mat-error *ngIf="genderInput.invalid">Please enter a valid gender.</mat-error>
+      </mat-form-field> <br>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Salary</mat-label>
+        <input matInput name="salary" [ngModel]="updatedShipper?.salary" type="text" placeholder="Salary"
+          #salaryInput="ngModel" required>
+        <mat-error *ngIf="salaryInput.invalid">Please enter a valid salary.</mat-error>
+      </mat-form-field> <br>
+
+      <mat-form-field appearance="outline">
+        <mat-label>jobstatus</mat-label>
+        <input matInput name="jobstatus" [ngModel]="updatedShipper?.jobstatus" type="text" placeholder="Job status"
+          #jobstatusInput="ngModel" required>
+        <mat-error *ngIf="jobstatusInput.invalid">Please enter a valid jobstatus.</mat-error>
+      </mat-form-field> <br>
+
+      <button mat-raised-button type="submit">Register Shipper</button>
+    </form>
+  </mat-card>
+</div>

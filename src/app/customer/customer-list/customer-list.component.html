@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="search-input">
+    <span mat-raised-button color="primary">Search Customer</span>
+    <input type="text" [(ngModel)]="customerName" placeholder="Enter Customer Name" #myInput (input)="searchText()">
+  </div>
+  <div class="table">
+    <h2>CUSTOMER LIST</h2>
+    <table>
+      <thead (click)="headerclick($event)">
+        <tr>
+          <th scope="col">#Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Mobile</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let customer of customerList">
+        <tr>
+          <th scope="row">{{ customer.customerId }}</th>
+          <td>{{ customer.customerName }}</td>
+          <td>{{ customer.email }}</td>
+          <td>{{ customer.contact }}</td>
+          <td>
+            <a mat-button [routerLink]="['/editCustomer', customer.customerId]">EDIT</a>
+            <button mat-button (click)="onDelete(customer.customerId)">DELETE</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <mat-paginator [length]="totalPosts" [pageSize]="postsPerPage" [pageSizeOptions]="pageSizeOptions"
+      (page)="onChangedPage($event)">
+    </mat-paginator>
+  </div>
+
+  <p class="info-text mat-body-1" *ngIf="customerList?.length <= 0">No customer added yet!</p>
+</div>

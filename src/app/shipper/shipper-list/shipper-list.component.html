@@ -1,0 +1,48 @@
+<!-- <mat-accordion multi="true" *ngIf="shippers.length>0">
+  <mat-expansion-panel *ngFor=" let shipper of shippers">
+    <mat-expansion-panel-header>
+      {{shipper.firstName}}
+    </mat-expansion-panel-header>
+    <mat-action-row>
+      <button class=del mat-button color="warn" (click)="onDelete()">DELETE</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion> -->
+
+
+
+<div class="table">
+  <h1>shipper LIST</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">FirstName</th>
+        <th scope="col">email</th>
+        <th scope="col">mobiles</th>
+        <th scope="col">gender</th>
+        <th scope="col">salary</th>
+        <th scope="col">jobstatus</th>
+      </tr>
+    </thead>
+    <tbody *ngFor=" let shipper of shipperList">
+      <tr *ngIf="isshowshipper===shipper.id || activemanager">
+
+        <th scope="row">{{shipper.id}}</th>
+        <td>{{shipper.firstName}}</td>
+        <td>{{shipper.email}}</td>
+        <td>{{shipper.mobile}}</td>
+        <td>{{shipper.gender}}</td>
+        <td>{{shipper.salary}}</td>
+        <td>{{shipper.jobstatus}}</td>
+        <td>
+          <a *ngIf="isshowshipper===shipper.id|| !activemanager" mat-button style="color: blue;"
+            [routerLink]="['/editShipper',shipper.id]">EDIT</a>
+          <button mat-button style="color: red;" *ngIf="isshowshipper === !shipper.id  || activemanager"
+            (click)="onDelete(shipper.id)">DELETE</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="info-text mat-body-1" *ngIf="shipperList?.length<=0"> No shippers added yet!</p>
+</div>

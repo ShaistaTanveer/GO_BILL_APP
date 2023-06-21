@@ -1,0 +1,33 @@
+<div class="table">
+  <h1>PRODUCT LIST</h1>
+  <button mat-button style="color: rgba(1, 170, 227, 0.83);" [routerLink]="['/myorder']"
+    *ngIf="isacustomer||ispublic&&isamanager&&isashipper"> My ORDER</button>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">productName</th>
+        <th scope="col">category</th>
+        <th scope="col">stockstatus</th>
+        <th scope="col">price</th>
+    </thead>
+    <tbody *ngFor=" let product of productList">
+      <tr>
+        <th scope="row">{{product.pid}}</th>
+        <td>{{product.productName |uppercase}}</td>
+        <td>{{product.category}}</td>
+        <td>{{product.stockstatus}}</td>
+        <td>{{product.price| currency:'INR'}}</td>
+        <td>
+          <!-- *ngIf="isamanager||!ispublic&&!isashipper&&!isacustomer" -->
+          <a mat-button style="color: blue;" [routerLink]="['/edit',product.pid]"
+            *ngIf="isamanager||ispublic&&!isashipper&&!isacustomer">EDIT</a>
+          <button mat-button style="color: red;" [routerLink]="['/order']"
+            *ngIf="isacustomer||ispublic&&isamanager&&isashipper">ORDER</button>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+<p class=" info-text mat-body-1" *ngIf="productList?.length<=0"> No products added yet!</p>

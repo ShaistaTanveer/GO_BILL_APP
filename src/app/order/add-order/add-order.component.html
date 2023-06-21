@@ -1,0 +1,79 @@
+<h2>ADD ORDER</h2>
+<br>
+<div class="formsize">
+  <mat-card>
+    <form (submit)="onaddOrder(addOrder)" #addOrder="ngForm">
+
+
+      <mat-form-field appearance="outline">
+        <mat-label>Contact</mat-label>
+        <input matInput name="contact" [ngModel]="updatedOrder?.contact" type="text" placeholder="Contact"
+          #contactInput="ngModel" required>
+        <mat-error *ngIf="contactInput.invalid">Please enter a valid address.</mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline">
+        <mat-label>Product Name</mat-label>
+        <input matInput name="productName" [ngModel]="updatedOrder?.productName" type="text" placeholder="Product Name"
+          #productInput="ngModel" required>
+        <mat-error *ngIf="productInput.invalid">Please enter a valid name.</mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline">
+        <mat-label>Address</mat-label>
+        <input matInput name="address" [ngModel]="updatedOrder?.address" type="text" placeholder="Address"
+          #addressInput="ngModel" required>
+        <mat-error *ngIf="addressInput.invalid">Please enter a valid address.</mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="outline">
+        <mat-label>EyeCard Details</mat-label>
+        <input type="text" name="EyeCardDetails" [ngModel]="updatedOrder?.EyeCardDetails" matInput
+          placeholder="EyeCardDetails" #EyeCardDetailsInput="ngModel">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Order Date</mat-label>
+        <input type="text" name="orderDate" [ngModel]="updatedOrder?.orderDate" matInput placeholder="Order Date"
+          #orderDateInput="ngModel" required>
+        <mat-error *ngIf="orderDateInput.invalid">Please enter a valid orderDate.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Delivery Date</mat-label>
+        <input type="text" name="deliveryDate" [ngModel]="updatedOrder?.deliveryDate" matInput
+          placeholder="Delivery Date" #deliveryDateInput="ngModel">
+
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Delivery Status</mat-label>
+        <input type="text" name="deliveryStatus" [ngModel]="updatedOrder?.deliveryStatus" matInput
+          placeholder="Delivery Status" #deliveryStatusInput="ngModel">
+
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Price</mat-label>
+        <input type="text" name="Price" [(ngModel)]="Price" matInput placeholder="Price" #PriceInput="ngModel">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>AdvancePay Amount</mat-label>
+        <input type="text" name="advancePayAmount" [(ngModel)]="advancePayAmount" matInput
+          placeholder="AdvancePay Amount" #advancePayAmountInput="ngModel">
+      </mat-form-field>
+
+      <br>
+
+      <mat-label>BALANCE</mat-label>
+      <h5>{{Price-advancePayAmount}}</h5>
+      <br>
+
+      <mat-label>TOTAL</mat-label>
+      <h5>{{"Rs :"+Price}}</h5>
+
+      <button mat-raised-button color="primary" type="submit">Place Order</button>
+    </form>
+  </mat-card>
+</div>
