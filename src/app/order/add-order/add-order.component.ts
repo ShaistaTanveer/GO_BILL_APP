@@ -65,6 +65,7 @@ export class AddOrderComponent implements OnInit {
       balanceAmount: this.Price - this.advancePayAmount,
       EyeCardDetails: form.value.EyeCardDetails,
     };
+
     if (this.mode === 'create') {
       this.authService.addOrder(authData).subscribe(
         () => {

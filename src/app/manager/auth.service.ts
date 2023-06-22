@@ -81,6 +81,8 @@ export class AuthService {
     return this.filterProducts;
   }
   registerManager(authData: any) {
+    console.log(authData, 'authData');
+
     return this.http.post(`${this.url}/staffRegister`, authData, {
       headers: this.getHeader(),
     });

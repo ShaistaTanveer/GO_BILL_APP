@@ -24,12 +24,11 @@ export class ManagerSignUpComponent implements OnInit {
   }
 
   onSavePost(form: NgForm) {
-    console.log(form);
     if (form.invalid) {
       return;
     }
-    let data = new FormData();
-    data.append('profileimage', this.profileimage);
+    // let data = new FormData();
+    // data.append('profileimage', this.profileimage);
     const authData = {
       firstName: form.value.firstName,
       email: form.value.email,
@@ -37,8 +36,8 @@ export class ManagerSignUpComponent implements OnInit {
       gender: form.value.gender,
       contact: form.value.contact,
     };
-    data.append('body', JSON.stringify(authData));
-    this.authService.registerManager(data).subscribe(
+    // data.append('body', JSON.stringify(authData));
+    this.authService.registerManager(authData).subscribe(
       () => {
         alert('signedUp');
         this.isauthenticated = true;
